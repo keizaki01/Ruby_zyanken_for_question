@@ -1,3 +1,5 @@
+
+# require "pry"
 puts "ジャンケン"
 puts "0(グー)1(チョキ)2(パー)3(戦わない)"
 select_hand = gets.to_i
@@ -5,18 +7,22 @@ select_hand = gets.to_i
 # 変数定義まとめる
 hand_gestures = ["グー", "チョキ", "パー"]
 hand_directions = ["上", "下", "左", "右"]
-rival_gesture = hand_gestures.sample(1)
+rival_gesture = hand_gestures.sample(1).to_s
 hand_direction_up = hand_directions[0]
-rival_direction = hand_directions.sample(1)
+rival_direction = hand_directions.sample(1).to_s
 
 # グーを出した時
+
 if select_hand == 0
 puts "ホイ"
 puts "-------------------"
 puts "あなた：" + hand_gestures[0] + "を出しました"
 puts "相手：#{rival_gesture}を出しました"
 
+puts rival_gesture.class
+puts hand_directions[0].class
 
+# binding.pry
     if rival_gesture == hand_gestures[0]
       puts "ジャンケンの繰り返し処理行う"
     elsif rival_gesture == hand_gestures[1]
